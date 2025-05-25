@@ -1,0 +1,35 @@
+{% extends 'blog/layout.html' %}
+
+{% block title %}MyBlog.{% endblock %}
+
+{% block content %}
+<main>
+  {% if request.user.is_authenticated %}
+    <h1>Добро пожаловать на MyBlog, {{ request.user.username }}.</h1>
+  {% else %}
+    <h1>Добро пожаловать на MyBlog.</h1>
+  {% endif %}
+  <nav>
+    <a href="{% url 'index' %}">Список постов</a><br>
+    {% if request.user.is_authenticated %}
+      <a href="{% url 'blog_create' %}">Новый пост</a><br>
+      {% if profile.otp_enabled %}
+        <a href="{% url '2fa-disable' %}">Отключить двухфакторную аутентфикацию</a><br>
+      {% else %}
+        <a href="{% url '2fa-setup' %}">Включить двухфакторную аутентфикацию</a><br>
+      {% endif %}
+      <a href="{% url 'logout' %}">Выйти</a><br>
+    {% else %}
+      <a href="{% url 'register' %}">Зарегистрироваться</a><br>
+      <a href="{% url 'login' %}">Войти</a>
+    {% endif %}
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </nav>
+</main>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'blog/layout.html' %}
+
+{% block title %}MyBlog.{% endblock %}
+
+{% block content %}
+<main>
+    <h1>Отключение двухфакторной аутентификации</h1>
+    <form method="post">
+        {% csrf_token %}
+            <p style="font-size: 18px">Вы уверены?</p>
+            <button type="submit">Отключить 2FA</button>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </form>
+</main>
+{% endblock %}

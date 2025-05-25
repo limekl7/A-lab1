@@ -1,0 +1,80 @@
+header {
+    text-align: center;
+    background-color: #f0ebe1;
+    box-shadow: 0 0 5px #6e6b66;
+    padding: 5px;
+}
+
+header h1 {
+    font-size: 50px;
+    font-family: 'Palatino Linotype';
+    font-weight: bold;
+}
+
+main {
+    text-align: center;
+    margin-top: 45px;
+}
+
+main h1 {
+    font-family: 'Sylfaen';
+    font-size: 40px;
+}
+
+main h2{
+    text-align: left;
+    font-family: 'Sylfaen';
+    font-size: 40px;
+    margin-left: 70px;
+}
+
+main ul{
+    text-align: left;
+    font-family: 'Sylfaen';
+    margin-left: 70px;
+    font-size: 19px;
+}
+
+ul a {
+    text-decoration: none;
+    color: black;
+}
+
+ul a:hover {
+    text-decoration: underline;
+    color: #525252;
+}
+
+main nav {
+    margin-top: 70px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-family: 'Sylfaen';
+    line-height: 40px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #525252;
+}
+
+footer {
+    flex-shrink: 0;
+    margin-left: 20px;
+    padding: 30px;
+}
+
+.content-container {
+    max-width: 100%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.content-container pre {
+    font-size: 25px;
+    font-family: 'Sylfaen';
+}

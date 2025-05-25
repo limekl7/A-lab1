@@ -1,0 +1,14 @@
+{% extends 'blog/layout.html' %}
+
+{% block title %}MyBlog.{% endblock %}
+
+{% block content %}
+<main>
+    <h1>Создание поста</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Создать пост</button>
+    </form>
+</main>
+{% endblock %}

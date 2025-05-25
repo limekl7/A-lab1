@@ -1,0 +1,19 @@
+{% extends 'blog/layout.html' %}
+
+{% block title %}MyBlog.{% endblock %}
+
+{% block content %}
+<main>
+    <h2>Список постов:</h2>
+    <ul>
+        {% for blog in blogs %}
+        <li>
+            <a href="{% url 'blog-info' blog.id %}">{{blog.title}}</a>
+            <small>Автор: {{blog.author.username}} | {{blog.created_at|date:"d M Y"}}</small>
+        </li>
+        {% empty %}
+        <p>Постов не найдено.</p>
+        {% endfor %}
+    </ul>
+</main>
+{% endblock %}

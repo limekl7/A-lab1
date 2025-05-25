@@ -1,0 +1,26 @@
+{% extends 'blog/layout.html' %}
+
+{% block title %}MyBlog.{% endblock %}
+
+{% block content %}
+<main>
+    <h1>Подключение двухфакторной аутентификации</h1>
+    <p style="font-size: 24px">Отсканируйте QR-код в приложении аутентификатора:</p>
+    <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code">
+    <form method="post">
+        {% csrf_token %}
+            <br><input type="text" name="otp_code" placeholder="Введите код аутентификации"><br><br>
+            <button type="submit">Подключить 2FA</button>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if error %}
+            <p style="color: red">{{ error }}</p>
+        {% endif %}
+    </form>
+</main>
+{% endblock %}
